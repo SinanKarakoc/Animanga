@@ -13,18 +13,21 @@ import java.util.List;
 @AllArgsConstructor//hepsini al
 @NoArgsConstructor// veya hiçbirini alma
 public class Anime {
-    @Id
+
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long animeId;
+    @Id
+    private Long id;
+
     private String movieType;//kategori
+
     private String movieName;
+
     private int season;
+
     private Double point;
 
+    private Double rentalFee;
 
-    /*@OneToMany
-    @JoinColumn(name = "categoryId")
-    Categories categories;
-    List<Categories> categoriesList;*/
-
+    /*@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "")*/
 }

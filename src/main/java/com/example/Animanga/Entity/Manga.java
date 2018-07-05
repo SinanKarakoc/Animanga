@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,13 +16,20 @@ import java.util.Date;
 public class Manga {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long CategoryId;
-    private Long mangaId;
+    private Long id;
+
+    private String mangaName;
+
     private Double point;
-    private int chapterNumber;
+
+    private int chapterNumber;//bunu ön plana çıkaracağız
+
     private int season;
+
     private Date releaseDate;
 
+    private Double purchaseFee;
 
-
+    /*@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "")*/
 }

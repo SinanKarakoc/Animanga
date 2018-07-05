@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 
-public interface CategoryRepository extends CrudRepository<Categories,Long> {
+public interface CategoryRepository extends CrudRepository<Categories, Long> {
     Categories findCategoriesById(@Param("id") Long id);
 
 }
