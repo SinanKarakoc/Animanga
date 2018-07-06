@@ -27,8 +27,8 @@ public class Categories {//anime-manga vs
 //            inverseJoinColumns = {@JoinColumn(name = "Anime_ID", referencedColumnName = "id")})
 //    @ManyToMany(fetch = FetchType.EAGER)
 //    private List<Anime> animeList;
-//
-//
+
+
 //    @JoinTable(name = "mangaCategory", joinColumns = {@JoinColumn(name = "category_ID", referencedColumnName = "id")},
 //            inverseJoinColumns = {@JoinColumn(name = "Manga_ID", referencedColumnName = "id")})
 //    @ManyToMany(fetch = FetchType.EAGER)
