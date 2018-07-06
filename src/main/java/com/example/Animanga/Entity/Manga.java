@@ -1,5 +1,6 @@
 package com.example.Animanga.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,22 +15,20 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "manga")
 public class Manga {
+
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long mangaId;
 
     private String mangaName;
-
+    //private String categoryType;
+    private String author;//eiichiri oda
+    private int chapterNumber;
     private Double point;
-
-    private int chapterNumber;//bunu ön plana çıkaracağız
-
-    private int season;
-
-    private Date releaseDate;
-
+    private String releaseDate;
     private Double purchaseFee;
 
-    /*@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "")*/
+    @ManyToMany
+    public List<Type> types;
+
 }

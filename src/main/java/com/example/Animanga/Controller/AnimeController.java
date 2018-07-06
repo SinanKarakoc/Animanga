@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 @ResponseBody
-@RequestMapping(path = "/api/anime")
+@RequestMapping(path = "api/anime")
 public class AnimeController {
     @Autowired
     AnimeService animeService;
@@ -61,9 +61,13 @@ public class AnimeController {
 
     @RequestMapping(path = "/delAll", method = RequestMethod.DELETE)
     public @ResponseBody
-    void deleteAllAnime() {
-        animeService.deleteAllAnime();
+    HttpStatus deleteAllAnime() {
+        try {
+            animeService.deleteAllAnime();
+        } catch (Exception e) {
+            return HttpStatus.BAD_REQUEST;
+        }
+        return HttpStatus.OK;
     }
-
 
 }

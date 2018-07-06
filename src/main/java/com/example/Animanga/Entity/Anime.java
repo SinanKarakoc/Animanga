@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -14,20 +15,20 @@ import java.util.List;
 @NoArgsConstructor// veya hiçbirini alma
 public class Anime {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
 
-    private String movieType;//kategori
-
+    //private String movieType;//kategori
     private String movieName;
-
+    private String director;
     private int season;
-
     private Double point;
-
+    private String releaseDate;
     private Double rentalFee;
 
-    /*@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "")*/
+
+    @ManyToMany
+    public List<Type> types;
+
 }

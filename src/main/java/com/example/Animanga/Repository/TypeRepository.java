@@ -1,12 +1,11 @@
 package com.example.Animanga.Repository;
 
-import com.example.Animanga.Entity.Anime;
+import com.example.Animanga.Entity.Type;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-public interface AnimeRepository extends CrudRepository<Anime, Long> {
-
-    Anime findByMovieName(String movieName);
+public interface TypeRepository extends CrudRepository<Type, Long> {
+//    Type findTypeById(@Param("id") Long id);
 
 
 }

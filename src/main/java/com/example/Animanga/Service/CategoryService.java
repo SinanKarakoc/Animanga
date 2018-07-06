@@ -23,7 +23,7 @@ public class CategoryService {
     }
 
     public Categories findCategoriesById(Long id) {
-        return categoryRepository.findCategoriesById(id);
+        return categoryRepository.findOne(id);
     }
 
     public void deleteCategoriesById(Long id) {

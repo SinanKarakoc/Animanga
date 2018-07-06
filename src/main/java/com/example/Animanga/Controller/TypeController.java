@@ -1,7 +1,7 @@
 package com.example.Animanga.Controller;
 
-import com.example.Animanga.Entity.Categories;
-import com.example.Animanga.Service.CategoryService;
+import com.example.Animanga.Entity.Type;
+import com.example.Animanga.Service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -10,24 +10,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@ResponseBody
-@RequestMapping(path = "api/category")
-public class CategoriesController {
+@RequestMapping(value = "api/type")
+public class TypeController {
+
     @Autowired
-    CategoryService categoryService;
+    TypeService typeService;
 
     @RequestMapping(path = "/getAll", method = RequestMethod.GET)
     public @ResponseBody
-    List<Categories> getAllCategoriesFromController() {
-        return categoryService.getAllCategoriesFromService();
+    List<Type> getAllCategoryTypesFromController() {
+        return typeService.getAllCategoryTypesFromService();
+
     }
 
 
     @RequestMapping(path = "/save", method = RequestMethod.POST, consumes = "application/json")
     public @ResponseBody
-    HttpStatus saveCategoryController(@RequestBody Categories category) {
+    HttpStatus saveTypeController(@RequestBody Type type) {
         try {
-            categoryService.saveCategoryService(category);
+            typeService.saveTypeService(type);
         } catch (Exception e) {
             System.out.println("Exception occured");
             return HttpStatus.BAD_REQUEST;
@@ -38,17 +39,17 @@ public class CategoriesController {
 
     @RequestMapping(path = "/find/{id}", method = RequestMethod.GET)
     public @ResponseBody
-    Categories findCategoriesById(@PathVariable Long id) {
-        return categoryService.findCategoriesById(id);
+    Type findTypeById(@PathVariable Long id) {
+        return typeService.findTypeById(id);
     }
 
 
     @RequestMapping(path = "/del/{id}", method = RequestMethod.DELETE)
     public @ResponseBody
-    HttpStatus deleteCategoriesById(@PathVariable Long id) {
+    HttpStatus deleteTypeById(@PathVariable Long id) {
 
         try {
-            categoryService.deleteCategoriesById(id);
+            typeService.deleteTypeById(id);
         } catch (Exception e) {
             return HttpStatus.BAD_REQUEST;
         }
@@ -57,15 +58,13 @@ public class CategoriesController {
 
     @RequestMapping(path = "/delAll", method = RequestMethod.DELETE)
     public @ResponseBody
-    HttpStatus deleteAllCategories() {
-        try{
-            categoryService.deleteAllCategories();
-        }
-        catch (Exception e){
+    HttpStatus deleteAllType() {
+        try {
+            typeService.deleteAllType();
+        } catch (Exception e) {
             return HttpStatus.BAD_REQUEST;
         }
         return HttpStatus.OK;
     }
-
 
 }
