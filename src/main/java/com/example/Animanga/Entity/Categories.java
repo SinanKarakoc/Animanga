@@ -37,6 +37,7 @@ public class Categories {//anime-manga vs
     public Customer customer;
 
     @OneToMany
+    @JoinColumn(name = "category_id")
     public List<Type> typeList;
 
 

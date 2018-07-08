@@ -2,12 +2,14 @@ package com.example.Animanga.Service;
 
 import com.example.Animanga.Entity.Type;
 import com.example.Animanga.Repository.TypeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class TypeService {
+    @Autowired
     TypeRepository typeRepository;
 
     public List<Type> getAllCategoryTypesFromService() {

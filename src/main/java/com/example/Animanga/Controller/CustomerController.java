@@ -57,7 +57,7 @@ public class CustomerController {
 
     @RequestMapping(path = "/delAll", method = RequestMethod.DELETE)
     public @ResponseBody
-    HttpStatus deleteAllType() {
+    HttpStatus deleteAllCustomers() {
         try{
             customerService.deleteAllCustomers();
         }
