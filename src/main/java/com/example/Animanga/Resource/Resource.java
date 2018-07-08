@@ -17,6 +17,6 @@ public class Resource {
         String username = userDetails.getUsername();
         Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
         authorities.forEach(System.out::println);
-        return "hey";
+        return "heyy";
     }
 }
