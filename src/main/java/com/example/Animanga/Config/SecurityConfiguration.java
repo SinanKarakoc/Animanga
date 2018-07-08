@@ -28,7 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .fullyAuthenticated()
                 //.antMatchers("**/hello").hasRole("USER")
                 .and()
-                ///.addFilterBefore(customFilter(), BasicAuthenticationFilter.class)
+                //.addFilterBefore(customFilter(), BasicAuthenticationFilter.class)
                 .httpBasic();
         httpSecurity.csrf().disable();
     }
