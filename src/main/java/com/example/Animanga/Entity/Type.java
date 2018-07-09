@@ -28,8 +28,8 @@ public class Type {//korku gerilim vs
     @ManyToMany
     public List<Manga> mangaList;
 
-    @ManyToMany
-    public List<Anime> animeList;
+//    @ManyToMany
+//    public List<Anime> animeList;
 
 
 }

@@ -29,15 +29,13 @@ public class Categories {//anime-manga vs
 //    private List<Anime> animeList;
 
 
-//    @JoinTable(name = "mangaCategory", joinColumns = {@JoinColumn(name = "category_ID", referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name = "Manga_ID", referencedColumnName = "id")})
-//    @ManyToMany(fetch = FetchType.EAGER)
+//@JoinTable(name = "cusCat", joinColumns = {@JoinColumn(name = "customerId", referencedColumnName = "customerId")},
+//        inverseJoinColumns = {@JoinColumn(name = "categoryId", referencedColumnName = "id")})
+    @ManyToMany
+    public List<Customer> customerList;
 
-    @ManyToOne
-    public Customer customer;
-
+    @JsonBackReference
     @OneToMany
-    @JoinColumn(name = "category_id")
     public List<Type> typeList;
 
 

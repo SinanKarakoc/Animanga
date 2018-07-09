@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 
-@RestController
-@RequestMapping("/api/resource")
+//@RestController
+//@RequestMapping("/api/resource")
 public class Resource {
     @GetMapping
     public String authentication(@AuthenticationPrincipal final UserDetails userDetails) {

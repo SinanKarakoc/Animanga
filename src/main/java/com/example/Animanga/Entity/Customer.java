@@ -1,5 +1,6 @@
 package com.example.Animanga.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class Customer {//
     private String address;
     private String email;
 
-    @OneToMany
+    @JsonBackReference
+    @ManyToMany
     public List<Categories> categoriesList;
 }
