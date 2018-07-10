@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src = "angular-1.7.2/angular.min.js"></script>
+<script src = "angular-1.7.2/angular-resource.min.js"></script>
+<script src = "/js/manga.js"></script>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        padding: 5px;
+    }
+    table {
+        border-spacing: 15px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Manga</title>
+</head>
+<body>
+
+<div class="row" ng-app="AnimangaApplication" ng-controller="MangaController" ng-init="pageOpen()">
+    <form >
+        <table class="table" style="width:50%" >
+            <thead>
+                <tr>
+                    <th>MANGA ADI</th>
+                    <th>MANGA YAZARI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  ng-repeat=" manga in mangaList">
+                    <td>{{manga.mangaName}}</td>
+                    <td>{{manga.author}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>
