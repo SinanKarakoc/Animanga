@@ -20,6 +20,10 @@ public class TypeService {
         typeRepository.save(type);
     }
 
+    public Type findTypeByName(String typeName) {
+        return typeRepository.findByTypeName(typeName);
+    }
+
     public Type findTypeById(Long id) {
         return typeRepository.findOne(id);
     }

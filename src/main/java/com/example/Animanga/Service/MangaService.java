@@ -20,7 +20,7 @@ public class MangaService {
 
         return (List<Manga>) mangaRepository.findAll();
 
-    }//hepsini getir
+    }
 
     public Manga findMangaByName(String mangaName) {
         return mangaRepository.findByMangaName(mangaName);
@@ -31,9 +31,9 @@ public class MangaService {
     }
 
 
-    public void deleteMangaById(Long mangaId) {
+    public void deleteMangaById(Manga manga) {
 
-        mangaRepository.delete(mangaId);
+        mangaRepository.delete(manga);
     }
 
     public String deleteAllMangas() {

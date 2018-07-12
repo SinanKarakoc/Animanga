@@ -47,12 +47,12 @@ public class MangaController {
         return mangaService.findMangaById(mangaId);
     }
 
-    @RequestMapping(path = "/del/{mangaId}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "/del", method = RequestMethod.POST)
     public @ResponseBody
-    HttpStatus deleteMangaById(@PathVariable Long mangaId) {
+    HttpStatus deleteMangaById(@RequestBody Manga manga) {
 
         try {
-            mangaService.deleteMangaById(mangaId);
+            mangaService.deleteMangaById(manga);
         } catch (Exception e) {
             return HttpStatus.BAD_REQUEST;
         }

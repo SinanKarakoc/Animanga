@@ -1,11 +1,7 @@
 var myApp = angular.module('AnimangaApplication', [])
     .controller('MangaController',
         function ($scope, $http) {
-            //
-            //
-            // $scope.manga = {};
-            // $scope.mangaList = [];
-            //
+
             $scope.pageOpen = function () {
                 $scope.getMangaList();
             }
@@ -16,6 +12,7 @@ var myApp = angular.module('AnimangaApplication', [])
                     $scope.mangaList = response.data;
                 })
             }
+
             $scope.save = function () {
                 var manga = $http.post("/api/manga/save", $scope.manga)
                 manga.then(function (response) {
@@ -23,19 +20,20 @@ var myApp = angular.module('AnimangaApplication', [])
                     $scope.getMangaList();
                 });
             }
+
             $scope.selectManga = function (manga) {
                 $scope.manga = manga;
             }
-            // $scope.deleteManga = function(stu, index) {
-            //     var retval = MangaService.deleteManga().then(function(msg) {
-            //         $scope.students.splice(index, 1);
-            //         // alert('Student has been deleted successfully.');
-            //     }).error(function() {
-            //         alert('Oops! something went wrong.');
-            //     });
-            // !!!!!!!!!!!!!delete eklenecek!!!!!!!!!!!!!!!!!!!
-            // }
 
-
+            $scope.deleteManga = function (m)
+            {
+                $scope.manga=m;
+                var asd = $http.post("/api/manga/del",$scope.manga)
+                asd.then(function (data)
+                {
+                    $scope.manga = {};
+                    $scope.getMangaList();
+                })
+            }
         });
 

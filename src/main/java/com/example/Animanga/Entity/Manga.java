@@ -15,14 +15,12 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "manga")
 public class Manga {
-
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long mangaId;
 
     private String mangaName;
-    //private String categoryType;
-    private String author;//eiichiri oda
+    private String author;
     private int chapterNumber;
     private Double point;
     private String releaseDate;

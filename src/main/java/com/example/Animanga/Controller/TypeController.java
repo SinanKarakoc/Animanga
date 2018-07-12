@@ -36,6 +36,11 @@ public class TypeController {
         return HttpStatus.OK;
     }
 
+    @RequestMapping(path = "/find/{typeName}", method = RequestMethod.GET)
+    public @ResponseBody
+    Type findTypeByName(@PathVariable String typeName) {
+        return typeService.findTypeByName(typeName);
+    }
 
     @RequestMapping(path = "/find/{id}", method = RequestMethod.GET)
     public @ResponseBody
