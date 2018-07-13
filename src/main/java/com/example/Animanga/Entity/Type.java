@@ -15,8 +15,7 @@ import java.util.List;
 @Table(name = "Type")
 public class Type {//korku gerilim vs
 
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long typeId;
 

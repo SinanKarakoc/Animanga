@@ -25,7 +25,6 @@ public class Manga {
     private Double point;
     private String releaseDate;
     private Double purchaseFee;
-
     @ManyToMany
     public List<Type> types;
 

@@ -23,19 +23,40 @@
 </head>
 
 <body>
+
+<!--
+<select>
+    <option value="Adventure">Adventure</option>
+    <option value="Action">Action</option>
+    <option value="Shounen">Shounen</option>
+    <option value="Horror">Horror</option>
+</select>
+!-->
+
 <form>
     <div ng-init="pageOpen()" ng-app="AnimangaApplication" ng-controller="MangaController" style="width:50%"
          class="container">
+
+
         <div class="form-group">
             <label for="mangaName">Manga Adı</label>
             <input type="text" class="form-control" id="mangaName" ng-model="manga.mangaName"
                    placeholder="Manga adı girin">
         </div>
 
+        <!--<div class="form-group">
+            <label for="types">Tür</label>
+            <input class ="form-control" type="text" id="types" ng-model="manga.types" placeholder="tür girin" >
+        </div>
+!-->
         <div class="form-group">
             <label for="author">Yazar</label>
             <input type="text" class="form-control" id="author" ng-model="manga.author"
                    placeholder="yazar girin">
+        </div>
+        <div>
+            <label>types</label>
+            <select ng-options="t.typeName for t in typeList track by t.typeId" ng-model="typeList"></select>
         </div>
 
         <div class="form-group">
@@ -58,6 +79,7 @@
             <input type="text" class="form-control" id="purchaseFee" ng-model="manga.purchaseFee"
                    placeholder="fiyat girin">
         </div>
+
         <button type="button" class="btn btn-primary" ng-click="save()">Kaydet</button>
 
         <h3>Mangalarrr</h3>
@@ -66,6 +88,7 @@
             <thead>
             <tr>
                 <th>MANGA ADI</th>
+                <!--<th>Type</th>!-->
                 <th>MANGA YAZARI</th>
                 <th>BÖLÜM SAYISI</th>
                 <th>ÇIKIŞ TARİHİ</th>
@@ -77,6 +100,7 @@
             <tbody>
             <tr ng-repeat=" manga in mangaList">
                 <td>{{manga.mangaName}}</td>
+                <!--<td ng-repeat="type in typeList.type">{{type.typeName}}</td>!-->
                 <td>{{manga.author}}</td>
                 <td>{{manga.chapterNumber}}</td>
                 <td>{{manga.releaseDate}}</td>
@@ -88,6 +112,14 @@
                 <td>
                     <button type="button" class="btn btn-info" ng-click="deleteManga(manga)">Sil</button>
                 </td>
+                <td>
+                    <button type="button" class="btn-default" ng-click="addManga()">ekle</button>
+                </td>
+                <!--<div ng-app="" ng-init="asd={miktar:1};">
+                    <p>Adet: <input type="number" ng-model="asd.miktar" /></p>
+                    <p>Ödenecek: {{ asd.miktar * asd.purchaseFee }} oyro</p>
+                </div>!-->
+
             </tr>
             </tr>
             </tbody>

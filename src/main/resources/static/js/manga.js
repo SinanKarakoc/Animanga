@@ -4,6 +4,7 @@ var myApp = angular.module('AnimangaApplication', [])
 
             $scope.pageOpen = function () {
                 $scope.getMangaList();
+                $scope.findType();
             }
 
             $scope.getMangaList = function () {
@@ -25,14 +26,21 @@ var myApp = angular.module('AnimangaApplication', [])
                 $scope.manga = manga;
             }
 
-            $scope.deleteManga = function (m)
-            {
-                $scope.manga=m;
-                var asd = $http.post("/api/manga/del",$scope.manga)
-                asd.then(function (data)
-                {
+            $scope.deleteManga = function (m) {
+                $scope.manga = m;
+                var asd = $http.post("/api/manga/del", $scope.manga)
+                asd.then(function (data) {
                     $scope.manga = {};
                     $scope.getMangaList();
+                })
+            }
+            $scope.addManga = function(manga){
+
+            }
+                $scope.findType = function (type) {
+                var res = $http.get("api/type/getAll");
+                res.then(function (response) {
+                    $scope.typeList = response.data;
                 })
             }
         });
